@@ -19,6 +19,10 @@ public class Configuration {
     public static double spawnProtectedRadius;
 
     public static boolean isProtected(Vec3d pos) {
+        if (pos.y < 0) {
+            return false;
+        }
+
         return pos.subtract(0, pos.y, 0).distanceTo(getSpawn()) <= spawnProtectedRadius;
     }
 
